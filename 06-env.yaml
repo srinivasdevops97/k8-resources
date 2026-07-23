@@ -1,15 +1,15 @@
 kind: Pod
 apiVersion: v1
 metadata:
-    name: limits
+    name: environment
 spec:
   containers:
   - name: nginx
     image: nginx
-    resources:
-      requests:
-        cpu: 100m
-        memory: 68Mi
-      limits:
-        cpu: 120m
-        memory: 100Mi
+    env:
+      - name: course
+        value: devops
+      - name: trainer
+        value: "sivakumar reddy"
+      - name: duration
+        value: "120hr"
