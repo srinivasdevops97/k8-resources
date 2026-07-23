@@ -16,4 +16,4 @@ spec:
         valueFrom:
           configMapKeyRef:
             name: nginx-config
-            value: duration
+            key: duration
