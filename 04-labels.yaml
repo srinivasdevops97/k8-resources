@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
     name: labels
     labels:
-        name: expense
+        project: expense
         module: backend
         environment: dev
 spec:
