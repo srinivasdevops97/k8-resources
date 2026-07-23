@@ -12,8 +12,8 @@ spec:
           configMapkeyRef:
           name: nginx-config
           key: course
-  - name: duration
-    valueFrom:
+   - name: duration
+      valueFrom:
       configMapkeyRef:
-        name: nginx-config
-        value: duration
+         name: nginx-config
+         value: duration
