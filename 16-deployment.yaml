@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:stable-alpine3.24
 ---
 # service
 kind: Service
