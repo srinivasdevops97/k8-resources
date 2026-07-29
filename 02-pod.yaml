@@ -6,4 +6,4 @@ spec:
   containers:
   # it is equal to docker run -d --name nginx nginx
   - name: nginx
-    image: nginx
+    image: nginx:stable-alpine
