@@ -1,3 +1,4 @@
+# PersistentVolume(PV) creation
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -11,3 +12,18 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-03819a1ce0de54e79
+---
+# PersistentVolumeClaim(PVc) creation
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
