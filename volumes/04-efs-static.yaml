@@ -1,3 +1,4 @@
+# PV creation
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -13,3 +14,17 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-08026df35b4597130
+---
+# PVC Creation
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: expense-efs
+spec:
+  volumeName: expense-efs # should be added cause it is not given in the repo script
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
