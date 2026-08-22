@@ -28,3 +28,38 @@ spec:
   resources:
     requests:
       storage: 5Gi
+---
+# Pod creation
+apiVersion: v1
+kind: Pod
+metadata:
+  name: efs-static
+  labels:
+    purpose: efs-static
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:   # equivalent to docker run -v <host-path>:<container-path>
+    - name: expense-efs
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: efs-static
+    persistentVolumeClaim:
+      claimName: efs-static
+---
+# Load Balancer creation
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb  # name of the service
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: efs-static
+  ports:       # list of the ports
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80      # service port
+    targetPort: 80     # container port(another port)
+    nodePort: 30007
