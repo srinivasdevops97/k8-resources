@@ -14,20 +14,20 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-0888f371405096cd4
-# ---
-# # PVC Creation
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: expense-efs
-# spec:
-#   volumeName: expense-efs # should be added cause it is not given in the repo script
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: ""
-#   resources:
-#     requests:
-#       storage: 5Gi
+---
+# PVC Creation
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: expense-efs
+spec:
+  volumeName: expense-efs # should be added cause it is not given in the repo script
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
 # ---
 # # Pod creation
 # apiVersion: v1
